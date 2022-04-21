@@ -293,6 +293,12 @@ app.post('/postUserBehaviour', function(req, res){
         $button: req.body.button,
         $timestamp: req.body.timestamp,
     })
+    res.writeHead(200, {
+        'Content-Type': 'application/json'
+     });
+    res.end(JSON.stringify({
+        status: 'success',
+    }));
 })
 
 //POST request to login
