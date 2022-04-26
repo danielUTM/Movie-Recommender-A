@@ -146,7 +146,6 @@ app.get('/getRecommendations', function(req, res){
         }, (error, numberofRows) => {
             //Creates a list of all the ratings for each group
             userRatings = [group1Ratings, group2Ratings, group3Ratings, group4Ratings, group5Ratings];
-            console.log(userRatings)
             for (var r of userRatings) {
                 if (r.length === 0) {
                     avgUserRatings.push(0);
@@ -156,7 +155,6 @@ app.get('/getRecommendations', function(req, res){
                 }
                 
             }
-            console.log(avgUserRatings)
             //Only gets called onced after all the above rows have been checked
 
             //Getting the row of the collaborative filtering table based on age
