@@ -4,9 +4,9 @@ async function load_recommendation(){
     var e = 0.2;
     var randomGreedy = Math.random();
     $.get("/getRecommendations", function(result){
-        var random = Math.floor(Math.random() * (6));
+        var random = Math.floor(Math.random() * (result.length));
         while (result[random]["title"] + ' - id: ' +result[random]['id'] === $('#m1Title').text()) {
-            var random = Math.floor(Math.random() * (6));
+            var random = Math.floor(Math.random() * (result.length));
         }
         //prints JSON into hello p placeholder
         //$('#hello').html(JSON.stringify(result));
