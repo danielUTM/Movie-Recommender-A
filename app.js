@@ -23,10 +23,10 @@ var collaborativeFilteringTable = [
 //1st Row is female
 //2nd Row is male
 //columns are age grops, <18, 18-29, 30-44, 45+
-var genderAgeTable = [
-    [ [1,2,3,4], [0,1,4], [0,1,4], [0,1,3,4] ],
-    [ [0], [2,3], [2,3], [2] ]
-]
+// var genderAgeTable = [
+//     [ [1,2,3,4], [0,1,4], [0,1,4], [0,1,3,4] ],
+//     [ [0], [2,3], [2,3], [2] ]
+// ]
 
 var users = [{username: "Sophie"}, {username: "Soph"}];
 var username = "";
@@ -102,6 +102,7 @@ app.get('/getCluster4', function(req, res) {
 });
 
 app.get('/getRecommendations', function(req, res){
+    username = parseInt(username)
     var group1Ratings = [];
     var group2Ratings = []
     var group3Ratings = []
@@ -110,8 +111,8 @@ app.get('/getRecommendations', function(req, res){
     var userRatings = [];
     var avgUserRatings = [];
     db.all('SELECT * FROM users WHERE username = $user', {$user: username},(error2, resultUsers) => {
-        age = resultUsers[0].age;
-        gender = resultUsers[0].gender;
+        // age = resultUsers[0].age;
+        // gender = resultUsers[0].gender;
 
         //Gets called for each row
         db.each('SELECT * FROM user_behaviour ORDER BY timestamp DESC', (error, result) => {
@@ -158,19 +159,19 @@ app.get('/getRecommendations', function(req, res){
             //Only gets called onced after all the above rows have been checked
 
             //Getting the row of the collaborative filtering table based on age
-            if(age === "<18"){
-                row = 0;
-            }else if(age === "18-29"){
-                row = 1;
-            }else if(age === "30-44"){
-                row = 2;
-            }else if(age === "45+"){
-                row = 3;
-            }
+            // if(age === "<18"){
+            //     row = 0;
+            // }else if(age === "18-29"){
+            //     row = 1;
+            // }else if(age === "30-44"){
+            //     row = 2;
+            // }else if(age === "45+"){
+            //     row = 3;
+            // }
 
-            if(gender === "male"){
-                row += 4;
-            }
+            // if(gender === "male"){
+            //     row += 4;
+            // }
             
             //Find the highest rated group & updating table
             var highestRated = 0;
@@ -343,8 +344,6 @@ app.post('/signup', function(req, res){
             username = req.body.username;
             db.run('INSERT INTO users (username, gender, age) VALUES ($username, $gender, $age)', {
                 $username: username,
-                $gender: req.body.gender,
-                $age: req.body.age,
             })
             res.send("Logged in as: " + req.body.username);
         }else{

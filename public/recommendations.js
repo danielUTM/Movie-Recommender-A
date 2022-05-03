@@ -69,6 +69,10 @@ async function load_recommendation(){
            })
        }
 
+       // Reset Likert scale
+       document.getElementById("grForm").reset();
+       document.getElementById("wtfForm").reset();
+
         //Incase you want to put the results in a table
         // var obj = result;
         // for(var i=0; i<obj.length; i++){
@@ -125,8 +129,8 @@ function moreDesc() {
 
 // Get a list of ids of all the films the current user has rated
 async function getRatedFilms () {
-    // pass through username
-    let username = sessionStorage.getItem("username")
+    var username = window.location.hash.substring(1)
+    username = parseInt(username)
     // regex
     var searchPattern = new RegExp("^g[1-5]");
     ratedFilms = []
