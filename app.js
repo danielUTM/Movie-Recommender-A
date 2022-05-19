@@ -28,7 +28,6 @@ var collaborativeFilteringTable = [
 //     [ [0], [2,3], [2,3], [2] ]
 // ]
 
-var users = [{username: "Sophie"}, {username: "Soph"}];
 var username = "";
 var age = "";
 var gender = "";
