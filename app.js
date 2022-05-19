@@ -6,7 +6,14 @@ const {v4: uuidv4} = require('uuid');
 
 var userid = uuidv4();
 
-const sqlite3 = require('sqlite3');
+// const sqlite3 = require('sqlite3');
+const { Pool } = require('pg');
+let db = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
 const { response } = require('express');
 
 var collaborativeFilteringTable = [
@@ -41,12 +48,13 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static('public'));
 
 //Loading in the Database
-let db = new sqlite3.Database('./db.sqlite', (err) => {
-    if (err) {
-        return console.error(err.message);
-    }
-    console.log('Connected to the in-memory SQlite database');
-});
+// let db = new sqlite3.Database('./db.sqlite', (err) => {
+//     if (err) {
+//         return console.error(err.message);
+//     }
+//     console.log('Connected to the in-memory SQlite database');
+// });
+
 
 //Querying the Database
 // db.serialize(() => {
