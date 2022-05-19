@@ -577,6 +577,7 @@
             $(function(){
                 //Group 1
                 $.get("/getCluster0", function(result){
+                    console.log(result);
                     // Get random index from 0 to number of films in cluster - 1
                     film_1 = Math.floor(Math.random() * result.length);
                     film_2 = Math.floor(Math.random() * result.length);
@@ -642,6 +643,7 @@
 
                 //Group 2
                 $.get("/getCluster1", function(result){
+                    console.log(result);
                     // Get random index from 0 to number of films in cluster - 1
                     film_1 = Math.floor(Math.random() * result.length);
                     film_2 = Math.floor(Math.random() * result.length);
@@ -706,6 +708,7 @@
 
                 //Group 3
                 $.get("/getCluster2", function(result){
+                    console.log(result);
                     // Get random index from 0 to number of films in cluster - 1
                     film_1 = Math.floor(Math.random() * result.length);
                     film_2 = Math.floor(Math.random() * result.length);
@@ -770,6 +773,7 @@
 
                 //Group 4
                 $.get("/getCluster3", function(result){
+                    console.log(result);
                     // Get random index from 0 to number of films in cluster - 1
                     film_1 = Math.floor(Math.random() * result.length);
                     film_2 = Math.floor(Math.random() * result.length);
@@ -834,6 +838,7 @@
 
                 //Group 5
                 $.get("/getCluster4", function(result){
+                    console.log(result);
                     // Get random index from 0 to number of films in cluster - 1
                     film_1 = Math.floor(Math.random() * result.length);
                     film_2 = Math.floor(Math.random() * result.length);
