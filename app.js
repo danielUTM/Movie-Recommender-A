@@ -69,42 +69,42 @@ app.use(express.static('public'));
 //GET Request for all movies
 app.get('/getAllMovies', function(req, res) {
     db.query('SELECT * FROM all_movies ORDER BY rank', (error, result) => {
-        res.send(result.rows);
+        res.send(result.rows[0]);
     });  
 });
 
 //GET Request for cluster 0
 app.get('/getCluster0', function(req, res) {
     db.query('SELECT * FROM cluster0_edited ORDER BY rank DESC', (error, result) => {
-        res.send(result.rows);
+        res.send(result.rows[0]);
     });  
 });
 
 //GET Request for cluster 1
 app.get('/getCluster1', function(req, res) {
     db.query('SELECT * FROM cluster1_edited ORDER BY rank DESC', (error, result) => {
-        res.send(result.rows);
+        res.send(result.rows[0]);
     });  
 });
 
 //GET Request for cluster 2
 app.get('/getCluster2', function(req, res) {
     db.query('SELECT * FROM cluster2_edited ORDER BY rank DESC', (error, result) => {
-        res.send(result);
+        res.send(result.rows[0]);
     });  
 });
 
 //GET Request for cluster 3
 app.get('/getCluster3', function(req, res) {
     db.query('SELECT * FROM cluster3_edited ORDER BY rank DESC', (error, result) => {
-        res.send(result.rows);
+        res.send(result.rows[0]);
     });  
 });
 
 //GET Request for cluster 4
 app.get('/getCluster4', function(req, res) {
     db.query('SELECT * FROM cluster4_edited ORDER BY rank DESC', (error, result) => {
-        res.send(result.rows);
+        res.send(result.rows[0]);
     });  
 });
 
