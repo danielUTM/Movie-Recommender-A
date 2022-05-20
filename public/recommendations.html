@@ -174,12 +174,10 @@
         <script>
             //track user behaviour
             function track(id) {
-                date = new Date();
                 //sends data to database
                 $.post("/postUserBehaviour", 
                     {
-                        button: id, 
-                        timestamp: date.getTime()
+                        button: id,
                     });
                 };
             

@@ -1,4 +1,3 @@
-
 //Populates the movies
 async function load_recommendation(){
     var e = 0.2;
@@ -143,7 +142,6 @@ async function getRatedFilms () {
                 ratedFilms.push(parseInt(i["button"].substring(firstM, i["button"].length)))
         }
     }
-    
     return ratedFilms;
 }
 
