@@ -16,17 +16,17 @@ var userid = uuidv4();
 // });
 
 const { Pool } = require('pg');
-let db = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
-});
-// const db = new Pool({
-//     host: "localhost",
-//     database: 'dbname',
-//     port: 5432,
-//   })
+// let db = new Pool({
+//   connectionString: process.env.DATABASE_URL,
+//   ssl: {
+//     rejectUnauthorized: false
+//   }
+// });
+const db = new Pool({
+    host: "localhost",
+    database: 'danielcampbell',
+    port: 5432,
+  })
 const { response } = require('express');
 
 var collaborativeFilteringTable = [
